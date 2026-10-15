@@ -1,0 +1,18 @@
+# Jenkins Configuration as Code (JCasC).
+# Everything here would otherwise be clicked through in "Manage Jenkins".
+jenkins:
+  systemMessage: "Jenkins practice controller, configured by JCasC"
+  numExecutors: 2            # builds run on the controller; fine for learning, use agents in real setups
+  mode: NORMAL
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "${JENKINS_ADMIN_ID}"
+          password: "${JENKINS_ADMIN_PASSWORD}"
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+unclassified:
+  location:
+    url: "http://localhost:8080/"

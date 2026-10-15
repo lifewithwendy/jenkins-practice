@@ -1,0 +1,10 @@
+# One plugin per line. "latest" is fine for practice; pin versions for real setups.
+workflow-aggregator:latest
+git:latest
+github:latest
+configuration-as-code:latest
+junit:latest
+pipeline-stage-view:latest
+pipeline-graph-view:latest
+timestamper:latest
+ws-cleanup:latest
