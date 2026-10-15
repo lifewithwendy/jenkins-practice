@@ -10,6 +10,9 @@ services:
     environment:
       JENKINS_ADMIN_ID: ${JENKINS_ADMIN_ID:-admin}
       JENKINS_ADMIN_PASSWORD: ${JENKINS_ADMIN_PASSWORD:-admin}
+      # Allow bigger request headers. Browsers send every localhost cookie (from other dev apps)
+      # to Jenkins, which otherwise fails with "HTTP ERROR 431 Request Header Fields Too Large".
+      JENKINS_OPTS: --requestHeaderSize=65536
     volumes:
       - jenkins_home:/var/jenkins_home          # jobs, build history, plugins survive restarts
       - ./jenkins/casc:/var/jenkins_home/casc:ro  # edit jenkins.yaml, then Manage Jenkins > Configuration as Code > Reload

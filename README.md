@@ -108,6 +108,7 @@ npm start   # http://localhost:3000/?name=Wendt and http://localhost:3000/health
 
 ## Troubleshooting
 
+- **HTTP ERROR 431 Request Header Fields Too Large**: your browser is sending lots of `localhost` cookies from other apps. Pull the latest `docker-compose.yml` (it raises the limit) and run `docker compose up -d`, or open http://127.0.0.1:8080 or a private window instead.
 - **Port 8080 already in use**: change `"8080:8080"` to `"8081:8080"` in `docker-compose.yml` and open http://localhost:8081 (also update `url` in `jenkins.yaml`).
 - **`npm: not found` in the build**: the image wasn't rebuilt. Run `docker compose up -d --build`.
 - **Git checkout fails with authentication errors**: the repo is private and the job has no credentials (see step 2.3).
